@@ -11,6 +11,6 @@ FEND optional project: Healthy Tracker
 3. Click the item you have eaten
 
 ## Resources used
-- [Backbone.js](http://backbonejs.org/
+- [Backbone.js](http://backbonejs.org/)
 - [Underscore.js](http://underscorejs.org/)
 - [Nutritionix API](http://www.nutritionix.com/api)
