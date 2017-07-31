@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>healthy tracker</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div id="search"></div>
+                <div id="nutritional"></div>
+            </div>
+
+            <div id="eaten" class="col-md-6">
+                <div id="list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+    <script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.0/backbone-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.16/backbone.localStorage-min.js"></script>
+
+    <script type="text/javascript" src="js/searchItemView.js"></script>
+    <script type="text/javascript" src="js/searchItems.js"></script>
+    <script type="text/javascript" src="js/searchItemsView.js"></script>
+    <script type="text/javascript" src="js/eatenItemsView.js"></script>
+    <script type="text/javascript" src="js/eatenItemView.js"></script>
+    <script type="text/javascript" src="js/eatenItems.js"></script>
+
+    <script src="js/main.js"></script>
+    <!-- TEMPLATES -->
+
+    <script type="text/html" id="searchTemplate">
+        <div class='results'>
+            <div>
+                <h4 class='search-header text-center'>Select an item from the list to see its nutritional data
+                </h4>
+            </div>
+            <ul id='ud-search-items' class='list-unstyled'>
+            </ul>
+        </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="searchInputTemplate">
+        <input type="text" autofocus id="query" class="form-control" placeholder="Search for a food item, plate or restaurant"></input>
+        <span class="input-group-btn"><button id="searchBtn" class="btn btn-default">Search</button></span>
+    </script>
+
+    <script type="text/html" id="searchItemTemplate">
+        <div style="border-top: 1px solid;">
+            <h4 class='item-name'>{{ item_name }} </h4>
+            <h5 class='item-brand'>{{ brand_name }} </h5>
+            <h6 class='item-calories'>{{ nf_calories }} Calories/{{ nf_serving_size_qty }} {{ nf_serving_size_unit }}</h6>
+        </div>
+    </script>
+
+    <script type="text/html" id="eaten-content">
+        <div class='eaten-div' style='border: 1px solid;'>
+            <h3 class='eaten-text-placeholder text-center'>What you have eaten today</h3>
+            <div class='total-calories'></div>
+            <ul class='eaten-items-list'></ul>
+        </div>
+    </script>
+
+    <script type="text/html" id="eatenItemTemplate">
+        <div class="eaten-item">
+            <div class="eaten-item-data">
+                <h4 class='item-name'> {{ model.attributes.item_name }} </h4>
+                <h5 class='item-brand'>{{ model.attributes.brand_name }} </h5>
+                <h6 class='item-calories'>{{ getEatenCalories }} Calories / {{ getEatenQuantity }} {{ model.attributes.nf_serving_size_unit }}</h6>
+            </div>
+            <div class="eaten-item-delete">
+                <button id='delete' class='btn btn-default btn-xs'>Delete</button>
+            </div>
+        </div>
+</script>
+</body>
+
+</html>
