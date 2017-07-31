@@ -15,7 +15,6 @@ App.events.on("selectedItem:event", function (data) {
 
 
 $(document).ready(function() {
-  //initialize properties for app
   App.searchItems = new SearchItems();
   App.searchItemsView = new SearchItemsView({ model: App.searchItems });
 
@@ -24,8 +23,7 @@ $(document).ready(function() {
   $("#search").append(html);
 
   App.eatenItems = new EatenItems();
-  // localstorage help from: http://stackoverflow.com/questions/12606837/how-to-get-backbone-collection-from-backbone-localstorage
-  App.eatenItems.localStorage = new Backbone.LocalStorage("DietApp"),
+  App.eatenItems.localStorage = new Backbone.LocalStorage("HealthyApp"),
   App.eatenItems.fetch();
 
   App.eatenItemsView = new EatenItemsView({ model: App.eatenItems });
