@@ -1,3 +1,11 @@
+var EatenItem = Backbone.Model.extend({
+
+});
+
+var EatenItems = Backbone.Collection.extend({
+    model: EatenItem
+});
+
 var SearchItem = Backbone.Model.extend({
     parse: function(item) {
         return item.fields;
