@@ -1,6 +1,8 @@
 var EatenItemsView = Backbone.View.extend({
     el: '#list',
 
+    totalCalories: 0,
+
     initialize: function() {
         var template = $("#eaten-content").html();
         var html = Mustache.render(template, this);
@@ -17,6 +19,7 @@ var EatenItemsView = Backbone.View.extend({
 
     render: function() {
         var self = this;
+        self.totalCalories = 0;
 
         var $list = $('.eaten-items-list');
         $list.html("");
@@ -24,7 +27,14 @@ var EatenItemsView = Backbone.View.extend({
         this.model.each(function(item) {
             var view = new EatenItemView({ model: item});
             $list.append(view.render().$el);
+
+            var itemCalories = item.attributes.nf_calories;
+            self.totalCalories += itemCalories;
         });
+        
+        var template = $("#eaten-total-calories").html();
+        var html = Mustache.render(template, self);
+        $('.total-calories').html(html);
 
         return this;
     }
