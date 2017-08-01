@@ -17,8 +17,8 @@ var SearchItems = Backbone.Collection.extend({
     query: $('#search').val(),
 
     parse: function(response){
-        return _.map(response.hits, function(model){
-            return model;
+        return _.map(response.hits, function(item){
+            return item;
         });
     },
 

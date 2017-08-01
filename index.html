@@ -18,13 +18,13 @@
         <div class="row"><hr></div>
 
         <div class="row">
-            <div class="col-md-6">
-                <div id="search"></div>
-                <div id="nutritional"></div>
-            </div>
-
             <div id="eaten" class="col-md-6">
                 <div id="list"></div>
+            </div>
+
+            <div class="col-md-6">
+                <h2>Add More</h2>
+                <div id="search"></div>
             </div>
         </div>
     </div>
@@ -41,9 +41,6 @@
 
     <script type="text/html" id="searchTemplate">
         <div class='results'>
-            <div>
-                <h4 class='search-header text-center'>Select an item from the list</h4>
-            </div>
             <ul id='ud-search-items' class='list-unstyled'>
             </ul>
         </div>
@@ -56,7 +53,7 @@
     </script>
 
     <script type="text/html" id="searchItemTemplate">
-        <div style="border-top: 1px solid;">
+        <div style="border-top: 1px solid;" class="search-item">
             <h4 class='item-name white'>{{ item_name }} </h4>
             <h5 class='item-brand yellow'>{{ brand_name }} </h5>
             <h6 class='item-calories yellow'>{{ nf_calories }} Calories/{{ nf_serving_size_qty }} {{ nf_serving_size_unit }}</h6>

@@ -88,7 +88,11 @@ var SearchItemsView = Backbone.View.extend({
         this.model.fetch({
             reset: true,
             success: function(data){
-                self.render();
+                if (data.length > 0){
+                    self.render();
+                } else {
+                    alert("do not have any data matching the input");
+                }
             },
             error: function(){
                 alert("can not get data from Nutritionix..");
@@ -121,13 +125,6 @@ var SearchItemsView = Backbone.View.extend({
 });
 
 var SearchItemView = Backbone.View.extend({
-
-    tagName: "li",
-
-    attributes: {
-        id: 'ud-search-item',
-    },
-
     initialize: function () {
         this.render();
     },

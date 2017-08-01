@@ -9,3 +9,11 @@ body {
 .yellow {
     color: yellow;
 }
+
+.search-item {
+    cursor: pointer;
+}
+
+.search-item:hover {
+    background: blueviolet;
+}
